@@ -6,7 +6,11 @@ langchain_community
 langchain_text_splitters
 langchain_community
 langchain
-dotenv
+python-dotenv
 langchain_ollama
 langchain_openai
 langchain-groq
+py-localtunnel
+pypdf
+sentence-transformers
+huggingface-hub
