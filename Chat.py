@@ -29,12 +29,13 @@ load_dotenv()
 st.set_page_config(page_title="Chat with documents 📚",page_icon="📚")
 st.title("Chat with documents 📚")
 
-model_class = "hf_hub" # @param ["hf_hub","ollama","openai","groq"]
+# model_class = "hf_hub" # @param ["hf_hub","ollama","openai","groq"]
+model_class = "groq" # @param ["hf_hub","ollama","openai","groq"]
 
 # Model providers
 # def model_hf_hub(model = "meta-llama/Meta-Llama-3-8B-Instruct", temperature = 0.1):
 # def model_hf_hub(model = "meta-llama/Llama-2-7b-chat-hf", temperature = 0.1):
-def model_hf_hub(model = "google/flan-t5-large", temperature = 0.1):
+def model_hf_hub(model = "mistralai/Mistral-7B-Instruct-v0.1", temperature = 0.1):
   llm = HuggingFaceEndpoint(
       repo_id=model,
       task="text-generation",
@@ -130,7 +131,7 @@ def config_rag_chain(model_class, retriever):
                                                              prompt = context_q_prompt)
     
     # Q&A Prompt
-    qa_prompt_template = """You are a helpful virtual assistant answerin general questions.
+    qa_prompt_template = """You are a helpful virtual assistant answering general questions.
     Use the following bits of retrieved context to answer the question.
     If you don't know the answer, just say tou don't know. Keep your answer concise.
     Answer in English. \n\n
